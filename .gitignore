@@ -1,0 +1,16 @@
+# Dependencies & Logs
+node_modules/
+*.log
+*.tmp
+
+# Operating System Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# System generated / scratch
+scratch/
