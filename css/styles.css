@@ -1,0 +1,228 @@
+/* SMARTGATE AI - Modern College Tech Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #070D1E;
+  --bg-secondary: #0F172A;
+  --bg-card: #141E33;
+  --bg-card-hover: #1A2744;
+  --border-color: rgba(59, 130, 246, 0.18);
+  --border-bright: rgba(56, 189, 248, 0.45);
+  --accent-blue: #2563EB;
+  --accent-cyan: #38BDF8;
+  --accent-emerald: #10B981;
+  --accent-rose: #EF4444;
+  --accent-amber: #F59E0B;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .brand-font {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(20, 30, 51, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel:hover {
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+/* Gate Turnstile Animation */
+.gate-turnstile-container {
+  perspective: 800px;
+}
+
+.gate-barrier-arm {
+  transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.gate-open-animation {
+  transform: rotate(-78deg) translateY(-8px);
+}
+
+/* Glowing Pulse Keyframes */
+@keyframes cyber-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.55);
+  }
+}
+
+.cyber-glow {
+  animation: cyber-pulse 2.5s infinite;
+}
+
+/* Red Strobe for Unauthorized Alert */
+@keyframes alert-strobe {
+  0%, 100% {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  50% {
+    background-color: rgba(239, 68, 68, 0.28);
+    border-color: rgba(239, 68, 68, 1);
+  }
+}
+
+.alert-strobe-box {
+  animation: alert-strobe 1s infinite;
+}
+
+/* Scanner Laser Line */
+@keyframes laser-sweep {
+  0% {
+    top: 5%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 90%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.8;
+  }
+}
+
+.laser-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #38bdf8, #ffffff, #38bdf8, transparent);
+  box-shadow: 0 0 12px #38bdf8, 0 0 20px #0284c7;
+  animation: laser-sweep 2s infinite ease-in-out;
+}
+
+/* Nav Item Active Indicators */
+.nav-link {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link.active {
+  background: rgba(37, 99, 235, 0.18);
+  color: #38BDF8;
+  border-left: 3px solid #38BDF8;
+}
+
+.nav-link:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F8FAFC;
+}
+
+/* Modal Animations */
+.modal-backdrop {
+  background-color: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  animation: modal-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Toast Notifications */
+#toast-container {
+  pointer-events: none;
+}
+.toast-item {
+  pointer-events: auto;
+  animation: toast-slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Badges */
+.badge-status-approved {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.badge-status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-status-rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* Print Styling for Gate Pass */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-gate-pass, #printable-gate-pass * {
+    visibility: visible;
+  }
+  #printable-gate-pass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    color: black;
+  }
+}
